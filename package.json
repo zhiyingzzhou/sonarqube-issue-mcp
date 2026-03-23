@@ -1,0 +1,38 @@
+{
+  "name": "sonarqube-issue-mcp",
+  "version": "0.0.4",
+  "description": "基于 SonarQube 项目 URL 查询 findings、overview、quality gate 与项目指标的 MCP 服务。",
+  "type": "module",
+  "bin": {
+    "sonarqube-issue-mcp": "./bin/sonarqube-issue-mcp.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/index.ts",
+    "prepack": "pnpm build",
+    "prepublishOnly": "pnpm test && pnpm build",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.27.1",
+    "undici": "7.24.4",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "25.5.0",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.0"
+  },
+  "packageManager": "pnpm@10.29.2+sha512.bef43fa759d91fd2da4b319a5a0d13ef7a45bb985a3d7342058470f9d2051a3ba8674e629672654686ef9443ad13a82da2beb9eeb3e0221c87b8154fff9d74b8"
+}
